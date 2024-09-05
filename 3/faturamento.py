@@ -11,8 +11,10 @@ menor_faturamento = min(faturamento_diario)
 maior_faturamento = max(faturamento_diario)
     
 media_mensal = sum(faturamento_diario) / len(faturamento_diario)
-    
-dias_acima_da_media = sum(1 for item in dados['faturamento'] if item['valor'] is not None and item['valor'] > media_mensal)
+
+for i in dados['faturamento']:
+    if i['valor'] > media_mensal:
+        dias_acima_da_media = i['dia']
 
 print(f"Menor valor de faturamento: R${menor_faturamento:.2f}")
 print(f"Maior valor de faturamento: R${maior_faturamento:.2f}")
